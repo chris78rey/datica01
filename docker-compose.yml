@@ -5,6 +5,6 @@ services:
     image: nginx:1.27-alpine
     restart: unless-stopped
     volumes:
-      - ./index.html:/usr/share/nginx/html/index.html:ro
+      - ./html:/usr/share/nginx/html:ro
     expose:
       - "80"
