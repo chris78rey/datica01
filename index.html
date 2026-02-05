@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Christian Ruiz — Analista de Datos</title>
-  <meta name="description" content="CV de Christian Ruiz, Analista de Datos con experiencia en Python, KNIME, Oracle y BI.">
+  <title>Christian Ruiz — Analista de Datos Senior</title>
+  <meta name="description" content="CV de Christian Ruiz, Analista de Datos Senior con expertise en Python, KNIME, Oracle y BI. 6+ años de experiencia en retail, banca y automatización.">
   <style>
     :root {
       --bg: #ffffff;
@@ -14,9 +14,11 @@
       --border: #e2e8f0;
       --primary: #0ea5e9;
       --accent: #7c3aed;
+      --success: #10b981;
+      --warning: #f59e0b;
       --radius: 12px;
       --shadow: 0 8px 24px rgba(2, 6, 23, 0.08);
-      --maxw: 920px;
+      --maxw: 1000px;
     }
 
     [data-theme="dark"] {
@@ -49,6 +51,7 @@
     a {
       color: var(--primary);
       text-decoration: none;
+      transition: color 0.2s ease;
     }
 
     a:hover {
@@ -89,8 +92,8 @@
     }
 
     .avatar {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       display: grid;
       place-items: center;
@@ -140,6 +143,8 @@
 
     .btn:hover {
       border-color: var(--primary);
+      background: var(--primary);
+      color: #fff;
     }
 
     .btn:active {
@@ -154,12 +159,17 @@
     .btn.ghost:hover {
       background: var(--card);
       border-color: var(--primary);
+      color: var(--primary);
     }
 
     .btn.primary {
       background: linear-gradient(90deg, var(--primary), var(--accent));
       border: none;
       color: #fff;
+    }
+
+    .btn.primary:hover {
+      opacity: 0.9;
     }
 
     .sections {
@@ -169,9 +179,9 @@
     }
 
     .sections .btn.active {
-      color: var(--primary);
-      border-color: var(--primary);
-      background: var(--card);
+      color: #fff;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-color: transparent;
     }
 
     main {
@@ -186,12 +196,32 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 20px;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     section h2 {
       margin: 0 0 12px 0;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon {
+      font-size: 24px;
+      display: inline-block;
     }
 
     .muted {
@@ -223,6 +253,29 @@
       border-color: #1e3a8a;
     }
 
+    .stat-box {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 10px 14px;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(124, 58, 237, 0.1));
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .stat-box .number {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .stat-box .label {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
     .grid2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -243,10 +296,16 @@
     .item {
       display: grid;
       gap: 6px;
-      padding: 10px;
+      padding: 12px;
       border: 1px dashed var(--border);
       border-radius: 8px;
       background: transparent;
+      transition: all 0.2s ease;
+    }
+
+    .item:hover {
+      border-color: var(--primary);
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.05), rgba(124, 58, 237, 0.05));
     }
 
     .top {
@@ -259,12 +318,42 @@
     .title {
       font-weight: 700;
       font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .meta {
       color: var(--muted);
       font-size: 12px;
       white-space: nowrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.15), rgba(34, 197, 94, 0.15));
+      color: var(--success);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .badge.warning {
+      background: linear-gradient(90deg, rgba(245, 158, 11, 0.15), rgba(251, 191, 36, 0.15));
+      color: var(--warning);
+    }
+
+    .impact {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 0;
+      color: var(--success);
+      font-weight: 600;
+      font-size: 13px;
     }
 
     .stack {
@@ -281,6 +370,81 @@
       font-size: 11px;
       color: var(--muted);
       background: transparent;
+      transition: all 0.2s ease;
+    }
+
+    .tag:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .skill-item {
+      display: grid;
+      gap: 4px;
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .skill-level {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .skill-bar {
+      height: 6px;
+      background: var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 999px;
+      transition: width 0.6s ease-out;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 700px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project-card {
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      background: transparent;
+      transition: all 0.2s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--primary);
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.05), rgba(124, 58, 237, 0.05));
+    }
+
+    .project-title {
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .project-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      line-height: 1.5;
     }
 
     .footer {
@@ -297,6 +461,7 @@
 
     ul li {
       margin: 4px 0;
+      font-size: 13px;
     }
 
     @media print {
@@ -305,9 +470,11 @@
       .nav-actions {
         display: none !important;
       }
+
       section {
         box-shadow: none;
         break-inside: avoid;
+        page-break-inside: avoid;
       }
     }
   </style>
@@ -320,13 +487,14 @@
           <div class="avatar">CR</div>
           <div class="brand-info">
             <div class="name">Christian Ruiz</div>
-            <div class="role">Analista de Datos</div>
+            <div class="role">Analista de Datos Senior</div>
           </div>
         </div>
         <div class="nav-actions">
           <nav class="sections" aria-label="Secciones del CV">
             <button class="btn ghost active" data-target="resumen" type="button">Resumen</button>
             <button class="btn ghost" data-target="experiencia" type="button">Experiencia</button>
+            <button class="btn ghost" data-target="proyectos" type="button">Proyectos</button>
             <button class="btn ghost" data-target="habilidades" type="button">Habilidades</button>
             <button class="btn ghost" data-target="contacto" type="button">Contacto</button>
           </nav>
@@ -339,57 +507,81 @@
     <main>
       <!-- Resumen -->
       <section id="resumen">
-        <h2>Resumen Profesional</h2>
+        <h2><span class="icon">📊</span> Resumen Profesional</h2>
         <p class="muted">
-          Analista de Datos con experiencia en pipelines, modelado y visualización. Competente en Python, KNIME y SQL
-          (Oracle/PostgreSQL). Enfoque en métricas accionables, calidad de datos y automatización para acelerar decisiones
-          en equipos de negocio.
+          Analista de Datos Senior con <strong>6+ años de experiencia</strong> en diseño de pipelines, modelado de datos y visualización. 
+          Especialista en <strong>Python, KNIME y SQL</strong> (Oracle/PostgreSQL) con enfoque en métricas accionables, 
+          calidad de datos y automatización de procesos. Impacto demostrado en reducción de tiempos operativos y mejora de indicadores clave.
         </p>
-        <div class="chips">
-          <span class="chip">Disponible</span>
-          <span class="chip">6+ años experiencia</span>
+        <div class="chips" style="margin-top: 16px;">
+          <span class="chip">✓ Disponible inmediatamente</span>
+          <span class="chip">6+ años de experiencia</span>
           <span class="chip">Bogotá, Colombia</span>
           <span class="chip">ES • EN (B2)</span>
         </div>
+
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+          <div class="stat-box">
+            <div class="number">22%</div>
+            <div class="label">Reducción OOS</div>
+          </div>
+          <div class="stat-box">
+            <div class="number">80%</div>
+            <div class="label">Tiempo ahorrado</div>
+          </div>
+          <div class="stat-box">
+            <div class="number">3+</div>
+            <div class="label">Empresas</div>
+          </div>
+          <div class="stat-box">
+            <div class="number">18</div>
+            <div class="label">Validaciones</div>
+          </div>
+        </div>
       </section>
 
-      <!-- Grid de Experiencia y Habilidades -->
+      <!-- Grid de Experiencia y Proyectos -->
       <div class="grid2">
         <!-- Experiencia -->
         <section id="experiencia">
-          <h2>Experiencia</h2>
+          <h2><span class="icon">💼</span> Experiencia</h2>
           <div class="list">
             <article class="item">
               <div class="top">
-                <div class="title">Analista de Datos</div>
-                <div class="meta">2022 – Presente</div>
+                <div class="title">🔵 Analista de Datos Senior</div>
+                <div class="meta">2022–Presente</div>
               </div>
-              <div class="muted" style="font-size: 13px;">Grupo Retail Andino • Bogotá</div>
-              <ul class="muted" style="font-size: 13px; margin-top: 4px;">
-                <li>Pipeline KNIME + Python (POS, e-commerce, logística) con SLA &lt; 30 min</li>
-                <li>Tablero ejecutivo Power BI con KPIs de ventas, conversión y rotación</li>
-                <li>Cierre mensual automatizado: 2 días → 4 horas</li>
+              <div class="muted" style="font-size: 12px; font-weight: 600;">Grupo Retail Andino • Bogotá</div>
+              <ul class="muted" style="font-size: 12px; margin-top: 6px;">
+                <li>Pipeline KNIME+Python (POS, e-commerce, logística) SLA &lt; 30 min</li>
+                <li>Tablero Power BI con 50+ KPIs para dirección ejecutiva</li>
+                <li>Reducción de cierre mensual: 2 días → 4 horas (automatización)</li>
+                <li>Marco de calidad con 18 validaciones y auditoría</li>
               </ul>
+              <div class="impact">✓ +22% en rotación de inventario</div>
               <div class="stack">
                 <span class="tag">Python</span>
                 <span class="tag">KNIME</span>
                 <span class="tag">SQL</span>
                 <span class="tag">Power BI</span>
                 <span class="tag">Oracle</span>
+                <span class="tag">Pandas</span>
               </div>
             </article>
 
             <article class="item">
               <div class="top">
-                <div class="title">Analista BI</div>
-                <div class="meta">2020 – 2022</div>
+                <div class="title">🔵 Analista BI</div>
+                <div class="meta">2020–2022</div>
               </div>
-              <div class="muted" style="font-size: 13px;">Banco Horizonte • Bogotá</div>
-              <ul class="muted" style="font-size: 13px; margin-top: 4px;">
-                <li>Data marts para riesgo de crédito y fraude</li>
-                <li>Reportes regulatorios automatizados con KNIME + SQL</li>
-                <li>Dashboards en Tableau para cartera, mora y recuperación</li>
+              <div class="muted" style="font-size: 12px; font-weight: 600;">Banco Horizonte • Bogotá</div>
+              <ul class="muted" style="font-size: 12px; margin-top: 6px;">
+                <li>Data marts para riesgo de crédito y detección de fraude</li>
+                <li>Reportes regulatorios automatizados (KNIME + SQL)</li>
+                <li>Implementación de linaje y gobernanza de datos</li>
+                <li>Dashboards Tableau para cartera, mora y recuperación</li>
               </ul>
+              <div class="impact">✓ -30% en procesamiento de reportes</div>
               <div class="stack">
                 <span class="tag">Tableau</span>
                 <span class="tag">PostgreSQL</span>
@@ -400,14 +592,14 @@
 
             <article class="item">
               <div class="top">
-                <div class="title">Consultor de Datos</div>
-                <div class="meta">2018 – 2020</div>
+                <div class="title">🔵 Consultor de Datos</div>
+                <div class="meta">2018–2020</div>
               </div>
-              <div class="muted" style="font-size: 13px;">Proyectos Freelance • Remoto</div>
-              <ul class="muted" style="font-size: 13px; margin-top: 4px;">
+              <div class="muted" style="font-size: 12px; font-weight: 600;">Proyectos Freelance • Remoto</div>
+              <ul class="muted" style="font-size: 12px; margin-top: 6px;">
                 <li>Integraciones de APIs (ventas, marketing, CRM)</li>
-                <li>Informes semanales automatizados y alertas</li>
-                <li>Migración de Excel a Python + notebooks reproducibles</li>
+                <li>Informes semanales automatizados con alertas</li>
+                <li>Migración de Excel a Python + Jupyter notebooks</li>
               </ul>
               <div class="stack">
                 <span class="tag">APIs</span>
@@ -418,46 +610,174 @@
           </div>
         </section>
 
-        <!-- Habilidades -->
+        <!-- Proyectos Destacados -->
+        <section id="proyectos">
+          <h2><span class="icon">🎯</span> Proyectos Destacados</h2>
+          <div class="projects-grid">
+            <div class="project-card">
+              <div class="project-title">Monitor de Quiebres (OOS)</div>
+              <span class="badge">Impacto: -22%</span>
+              <div class="project-desc">
+                Detección temprana por SKU y tienda con alertas automáticas y priorización de reposición.
+              </div>
+              <div class="stack">
+                <span class="tag">KNIME</span>
+                <span class="tag">Python</span>
+                <span class="tag">Power BI</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-title">Pipeline Omnicanal</div>
+              <span class="badge">SLA: 25 min</span>
+              <div class="project-desc">
+                Unificación de POS y e-commerce con conciliación diaria y ajuste de estornos.
+              </div>
+              <div class="stack">
+                <span class="tag">Pandas</span>
+                <span class="tag">Oracle</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-title">Score Propensión Compra</div>
+              <span class="badge warning">5M transacciones</span>
+              <div class="project-desc">
+                Modelo de clasificación para segmentación y priorización de campañas de marketing.
+              </div>
+              <div class="stack">
+                <span class="tag">scikit-learn</span>
+                <span class="tag">Feature Engineering</span>
+                <span class="tag">A/B Testing</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-title">Data Quality Framework</div>
+              <span class="badge">18 validaciones</span>
+              <div class="project-desc">
+                Sistema completo de validación, linaje de datos y auditoría con reglas de negocio.
+              </div>
+              <div class="stack">
+                <span class="tag">KNIME</span>
+                <span class="tag">Python</span>
+                <span class="tag">Airflow</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Grid de Habilidades -->
+      <div class="grid2">
         <section id="habilidades">
-          <h2>Habilidades</h2>
+          <h2><span class="icon">⚙️</span> Habilidades Técnicas</h2>
           <div class="list">
-            <div class="item">
-              <div class="title">Python</div>
-              <div class="muted" style="font-size: 12px;">Pandas, NumPy, scikit-learn, Jupyter</div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="title">Python</span>
+                <span class="skill-level">Avanzado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" style="width: 88%;"></div></div>
+              <div class="muted" style="font-size: 11px;">Pandas, NumPy, scikit-learn, Jupyter</div>
             </div>
-            <div class="item">
-              <div class="title">KNIME</div>
-              <div class="muted" style="font-size: 12px;">ETL, validaciones, reporting, orquestación</div>
+
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="title">KNIME</span>
+                <span class="skill-level">Avanzado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+              <div class="muted" style="font-size: 11px;">ETL, validaciones, reporting, orquestación</div>
             </div>
-            <div class="item">
-              <div class="title">SQL</div>
-              <div class="muted" style="font-size: 12px;">Oracle, PostgreSQL, modelado, optimización</div>
+
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="title">SQL</span>
+                <span class="skill-level">Avanzado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" style="width: 82%;"></div></div>
+              <div class="muted" style="font-size: 11px;">Oracle, PostgreSQL, modelado, optimización</div>
             </div>
-            <div class="item">
-              <div class="title">BI</div>
-              <div class="muted" style="font-size: 12px;">Power BI, Tableau, DAX, storytelling</div>
+
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="title">BI</span>
+                <span class="skill-level">Intermedio-Alto</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" style="width: 78%;"></div></div>
+              <div class="muted" style="font-size: 11px;">Power BI, Tableau, DAX, storytelling</div>
             </div>
-            <div class="item">
-              <div class="title">Complementos</div>
-              <div class="stack" style="margin-top: 4px;">
+
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="title">Automatización</span>
+                <span class="skill-level">Intermedio</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" style="width: 76%;"></div></div>
+              <div class="muted" style="font-size: 11px;">Scripts, scheduling, alertas, orquestación</div>
+            </div>
+
+            <div style="margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border);">
+              <div style="font-weight: 700; font-size: 13px; margin-bottom: 8px;">Complementos</div>
+              <div class="stack">
                 <span class="tag">Git</span>
-                <span class="tag">APIs</span>
+                <span class="tag">APIs REST</span>
                 <span class="tag">Excel avanzado</span>
                 <span class="tag">Regex</span>
+                <span class="tag">CSV/Parquet</span>
+                <span class="tag">Data Marts</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2><span class="icon">🎓</span> Formación & Certificaciones</h2>
+          
+          <div style="margin-bottom: 16px;">
+            <div style="font-weight: 700; font-size: 13px; margin-bottom: 10px;">📚 Educación</div>
+            <div class="list" style="gap: 10px;">
+              <div class="item" style="padding: 10px;">
+                <div class="title" style="font-size: 13px;">Ingeniería de Sistemas (B.Sc.)</div>
+                <div class="muted" style="font-size: 11px;">Universidad Nacional • 2013–2018</div>
+                <div class="muted" style="font-size: 11px; margin-top: 4px;">Énfasis en bases de datos y analítica</div>
+              </div>
+              <div class="item" style="padding: 10px;">
+                <div class="title" style="font-size: 13px;">Diplomado en Analítica de Datos</div>
+                <div class="muted" style="font-size: 11px;">Uniandes • 2019</div>
               </div>
             </div>
           </div>
 
-          <div style="margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border);">
-            <div style="font-weight: 700; margin-bottom: 8px;">Educación</div>
-            <div class="item" style="padding: 0;">
-              <div class="title" style="font-size: 13px;">Ingeniería de Sistemas (B.Sc.)</div>
-              <div class="muted" style="font-size: 12px;">Universidad Nacional • 2013 – 2018</div>
-            </div>
-            <div class="item" style="padding: 0; margin-top: 8px;">
-              <div class="title" style="font-size: 13px;">Diplomado en Analítica de Datos</div>
-              <div class="muted" style="font-size: 12px;">Uniandes • 2019</div>
+          <div>
+            <div style="font-weight: 700; font-size: 13px; margin-bottom: 10px;">🏆 Certificaciones</div>
+            <div class="list" style="gap: 8px;">
+              <div class="item" style="padding: 8px;">
+                <div class="title" style="font-size: 12px; display: flex; justify-content: space-between; align-items: center;">
+                  Oracle SQL Expert
+                  <span class="badge" style="margin: 0;">Vigente</span>
+                </div>
+              </div>
+              <div class="item" style="padding: 8px;">
+                <div class="title" style="font-size: 12px; display: flex; justify-content: space-between; align-items: center;">
+                  Power BI Data Analyst
+                  <span class="badge" style="margin: 0;">2023</span>
+                </div>
+              </div>
+              <div class="item" style="padding: 8px;">
+                <div class="title" style="font-size: 12px; display: flex; justify-content: space-between; align-items: center;">
+                  KNIME Analytics Basics
+                  <span class="badge" style="margin: 0;">2022</span>
+                </div>
+              </div>
+              <div class="item" style="padding: 8px;">
+                <div class="title" style="font-size: 12px; display: flex; justify-content: space-between; align-items: center;">
+                  Python para Data Science
+                  <span class="badge" style="margin: 0;">2020</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -465,45 +785,50 @@
 
       <!-- Contacto -->
       <section id="contacto">
-        <h2>Contacto</h2>
+        <h2><span class="icon">📞</span> Contacto</h2>
         <div class="grid2">
           <div class="item">
-            <div class="top">
-              <div class="title">Información</div>
-            </div>
+            <div style="font-weight: 700; font-size: 13px; margin-bottom: 8px;">Información de Contacto</div>
             <div class="list" style="gap: 6px;">
               <div class="stack" style="margin: 0;">
-                <span class="tag">Correo</span>
-                <span class="muted">contacto.christianruiz+cv@datica.local</span>
+                <span class="tag">📧 Correo</span>
+                <a href="mailto:contacto.christianruiz+cv@datica.local">contacto.christianruiz+cv@datica.local</a>
               </div>
               <div class="stack" style="margin: 0;">
-                <span class="tag">Teléfono</span>
-                <span class="muted">(+57) 300 000 0000</span>
+                <span class="tag">📱 Teléfono</span>
+                <a href="tel:+573000000000">(+57) 300 000 0000</a>
               </div>
               <div class="stack" style="margin: 0;">
-                <span class="tag">LinkedIn</span>
-                <a href="#" rel="nofollow">/christianruiz-analista</a>
+                <span class="tag">🔗 LinkedIn</span>
+                <a href="https://linkedin.com/in/christianruiz-analista" target="_blank" rel="noopener noreferrer">/christianruiz-analista</a>
               </div>
               <div class="stack" style="margin: 0;">
-                <span class="tag">GitHub</span>
-                <a href="#" rel="nofollow">/chruiz-data</a>
+                <span class="tag">💻 GitHub</span>
+                <a href="https://github.com/chruiz-data" target="_blank" rel="noopener noreferrer">/chruiz-data</a>
               </div>
             </div>
           </div>
+
           <div class="item">
-            <div class="title">Intereses</div>
-            <div class="stack" style="margin-top: 8px;">
-              <span class="tag">Orquestación</span>
+            <div style="font-weight: 700; font-size: 13px; margin-bottom: 8px;">Intereses & Tendencias</div>
+            <div class="stack" style="margin-top: 0;">
               <span class="tag">Data Quality</span>
+              <span class="tag">DataOps</span>
+              <span class="tag">Orquestación</span>
               <span class="tag">Time-series</span>
               <span class="tag">Forecast</span>
+              <span class="tag">ML Ops</span>
+            </div>
+            <div style="margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border); font-size: 12px; color: var(--muted);">
+              <strong>Disponibilidad:</strong> Inmediata<br>
+              <strong>Modalidad:</strong> Presencial / Híbrida
             </div>
           </div>
         </div>
       </section>
 
       <div class="footer">
-        © <span id="year"></span> Christian Ruiz • Analista de Datos
+        © <span id="year"></span> Christian Ruiz • Analista de Datos Senior | <a href="https://github.com/chris78rey/datica01" target="_blank">CV en GitHub</a>
       </div>
     </main>
   </div>
@@ -573,6 +898,17 @@
 
     // Año dinámico
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Animar barras de habilidades al cargar
+    window.addEventListener('load', function () {
+      document.querySelectorAll('.skill-fill').forEach(el => {
+        const width = el.style.width;
+        el.style.width = '0';
+        setTimeout(() => {
+          el.style.width = width;
+        }, 100);
+      });
+    });
   </script>
 </body>
 </html>
