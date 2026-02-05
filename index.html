@@ -1,271 +1,578 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es" data-theme="light">
-  <head>
-    <meta charset="utf-8"</head> />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Christian Ruiz — Analista de</title> Datos</title>
-    <meta name="description" content="CV mínimo, elegante y bien formado con tema claro/oscuro y navegación básica." />
-    <style></style>
-      :root {
-        --bg: #ffffff;
-        --text: #0f172a;
-        --muted: #64748b;
-        --card: #f8fafc;
-        --border: #e2e8f0;
-        --primary: #0ea5e9;
-        --accent: #7c3aed;
-        --radius: 12px;
-        --shadow: 0 8px 24px rgba(2, 6, 23, 0.08);
-        --maxw: 920px;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christian Ruiz — Analista de Datos</title>
+  <meta name="description" content="CV de Christian Ruiz, Analista de Datos con experiencia en Python, KNIME, Oracle y BI.">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --card: #f8fafc;
+      --border: #e2e8f0;
+      --primary: #0ea5e9;
+      --accent: #7c3aed;
+      --radius: 12px;
+      --shadow: 0 8px 24px rgba(2, 6, 23, 0.08);
+      --maxw: 920px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0b1220;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --card: #0f172a;
+      --border: #1f2937;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 0;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      box-shadow: var(--shadow);
+      font-size: 14px;
+    }
+
+    .brand-info {
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-info .name {
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .brand-info .role {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      border-color: var(--primary);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn.ghost {
+      background: transparent;
+      border-color: transparent;
+    }
+
+    .btn.ghost:hover {
+      background: var(--card);
+      border-color: var(--primary);
+    }
+
+    .btn.primary {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border: none;
+      color: #fff;
+    }
+
+    .sections {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .sections .btn.active {
+      color: var(--primary);
+      border-color: var(--primary);
+      background: var(--card);
+    }
+
+    main {
+      display: grid;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+
+    section h2 {
+      margin: 0 0 12px 0;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #1e293b;
+      border: 1px solid #c7d2fe;
+      font-size: 12px;
+    }
+
+    [data-theme="dark"] .chip {
+      background: #0b1a38;
+      color: var(--text);
+      border-color: #1e3a8a;
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 840px) {
+      .grid2 {
+        grid-template-columns: 1fr;
       }
-      [data-theme="dark"] {
-        --bg: #0b1220;
-        --text: #e5e7eb;
-        --muted: #94a3b8;
-        --card: #0f172a;
-        --border: #1f2937;
-        --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .item {
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      background: transparent;
+    }
+
+    .top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .title {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .stack {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .tag {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--muted);
+      background: transparent;
+    }
+
+    .footer {
+      margin: 20px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    ul li {
+      margin: 4px 0;
+    }
+
+    @media print {
+      header,
+      .btn,
+      .nav-actions {
+        display: none !important;
       }
-      * { box-sizing: border-box }
-      html, body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--text);
-        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-        line-height: 1.55;
-      }
-      a { color: var(--primary); text-decoration: none }
-      a:hover { text-decoration: underline }
-      .wrap { max-width: var(--maxw); margin: 0 auto; padding: 20px }
-      header {
-        position: sticky; top: 0; z-index: 20;
-        background: var(--bg);
-        border-bottom: 1px solid var(--border);
-      }
-      .nav {
-        display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center;
-        padding: 10px 0;
-      }
-      .brand { display: flex; gap: 12px; align-items: center }
-      .avatar {
-        width: 40px; height: 40px; border-radius: 50%;
-        display: grid; place-items: center; font-weight: 700;
-        background: linear-gradient(135deg, var(--primary), var(--accent));
-        color: #fff; box-shadow: var(--shadow);
-      }
-      .brand-info { display: grid; gap: 2px }
-      .brand-info .name { font-weight: 700 }
-      .brand-info .role { color: var(--muted); font-size: 13px }
-      .nav-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap }
-      .btn {
-        display: inline-flex; align-items: center; gap: 8px;
-        padding: 8px 12px; border: 1px solid var(--border);
-        border-radius: 10px; background: var(--card);
-        color: var(--text); cursor: pointer; font-weight: 600;
-        box-shadow: var(--shadow);
-      }
-      .btn.ghost { background: transparent }
-      .btn.primary { background: linear-gradient(90deg, var(--primary), var(--accent)); border: none; color: #fff }
-      .btn:active { transform: translateY(1px) }
-      .sections { display: flex; gap: 8px; flex-wrap: wrap }
-      .sections .btn.active { color: var(--primary); border-color: var(--primary) }
-      main { display: grid; gap: 16px; margin-top: 16px }
       section {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        padding: 16px;
+        box-shadow: none;
+        break-inside: avoid;
       }
-      section h2 { margin: 0 0 8px 0; font-size: 20px }
-      .muted { color: var(--muted) }
-      .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px }
-      .chip {
-        display: inline-flex; align-items: center; gap: 6px;
-        padding: 6px 10px; border-radius: 999px;
-        background: #eef2ff; color: #1e293b; border: 1px solid #c7d2fe;
-      }
-      [data-theme="dark"] .chip { background: #0b1a38; color: var(--text); border-color: #1e3a8a }
-      .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px }
-      @media (max-width: 840px) { .grid2 { grid-template-columns: 1fr } }
-      .list { display: grid; gap: 12px }
-      .item { display: grid; gap: 6px; padding: 8px; border: 1px dashed var(--border); border-radius: 10px }
-      .top { display: grid; grid-template-columns: 1fr auto; gap: 8px }
-      .title { font-weight: 700 }
-      .meta { color: var(--muted); font-size: 13px }
-      .stack { display: flex; gap: 6px; flex-wrap: wrap }
-      .tag { padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); font-size: 12px; color: var(--muted) }
-      .footer { margin: 20px 0; color: var(--muted); text-align: center; font-size: 12px }
-      html { scroll-behavior: smooth }
-      @media print {
-        header, .btn { display: none !important }
-        section { box-shadow: none; break-inside: avoid; }
-        body { background: #fff }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="wrap"></body>
-      <header aria-label="Barra de navegación">
-        <div class="nav">
-          <div class="brand">
-            <div class="avatar" aria-label="Avatar">CR</div>
-            <div class="brand-info">
-              <div class="name">Christian Ruiz</div>
-              <div class="role">Analista de Datos • BI & Analytics</div>
-            </div>
-          </div>
-          <div class="nav-actions">
-            <nav class="sections" aria-label="Secciones">
-              <button class="btn ghost active" data-target="resumen" type="button">Resumen</button>
-              <button class="btn ghost" data-target="experiencia" type="button">Experiencia</button>
-              <button class="btn ghost" data-target="habilidades" type="button">Habilidades</button>
-              <button class="btn ghost" data-target="contacto" type="button">Contacto</button>
-            </nav>
-            <button id="themeToggle" class="btn" type="button" aria-label="Cambiar tema">Tema</button>
-            <a class="btn primary" href="#contacto">Contactar</a>
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="nav">
+        <div class="brand">
+          <div class="avatar">CR</div>
+          <div class="brand-info">
+            <div class="name">Christian Ruiz</div>
+            <div class="role">Analista de Datos</div>
           </div>
         </div>
-      </header>
+        <div class="nav-actions">
+          <nav class="sections" aria-label="Secciones del CV">
+            <button class="btn ghost active" data-target="resumen" type="button">Resumen</button>
+            <button class="btn ghost" data-target="experiencia" type="button">Experiencia</button>
+            <button class="btn ghost" data-target="habilidades" type="button">Habilidades</button>
+            <button class="btn ghost" data-target="contacto" type="button">Contacto</button>
+          </nav>
+          <button id="themeToggle" class="btn" type="button" aria-label="Cambiar tema">🌙</button>
+          <a href="#contacto" class="btn primary">Contactar</a>
+        </div>
+      </div>
+    </header>
 
-      <main></main>
-        <section id="resumen" aria-labelledby="h-resumen">
-          <h2 id="h-resumen">Resumen</h2>
-          <p class="muted">
-            Analista de Datos con experiencia en pipelines, modelado y visualización. Competente en Python, KNIME y SQL
-            (Oracle/PostgreSQL). Enfoque en métricas accionables, calidad de datos y automatización para acelerar decisiones.
-          </p>
-          <div class="chips" aria-label="Datos clave">
-            <span class="chip">Disponible</span>
-            <span class="chip">Experiencia: 6+ años</span>
-            <span class="chip">Bogotá, Colombia</span>
-            <span class="chip">Español (Nativo) • Inglés (B2)</span>
+    <main>
+      <!-- Resumen -->
+      <section id="resumen">
+        <h2>Resumen Profesional</h2>
+        <p class="muted">
+          Analista de Datos con experiencia en pipelines, modelado y visualización. Competente en Python, KNIME y SQL
+          (Oracle/PostgreSQL). Enfoque en métricas accionables, calidad de datos y automatización para acelerar decisiones
+          en equipos de negocio.
+        </p>
+        <div class="chips">
+          <span class="chip">Disponible</span>
+          <span class="chip">6+ años experiencia</span>
+          <span class="chip">Bogotá, Colombia</span>
+          <span class="chip">ES • EN (B2)</span>
+        </div>
+      </section>
+
+      <!-- Grid de Experiencia y Habilidades -->
+      <div class="grid2">
+        <!-- Experiencia -->
+        <section id="experiencia">
+          <h2>Experiencia</h2>
+          <div class="list">
+            <article class="item">
+              <div class="top">
+                <div class="title">Analista de Datos</div>
+                <div class="meta">2022 – Presente</div>
+              </div>
+              <div class="muted" style="font-size: 13px;">Grupo Retail Andino • Bogotá</div>
+              <ul class="muted" style="font-size: 13px; margin-top: 4px;">
+                <li>Pipeline KNIME + Python (POS, e-commerce, logística) con SLA &lt; 30 min</li>
+                <li>Tablero ejecutivo Power BI con KPIs de ventas, conversión y rotación</li>
+                <li>Cierre mensual automatizado: 2 días → 4 horas</li>
+              </ul>
+              <div class="stack">
+                <span class="tag">Python</span>
+                <span class="tag">KNIME</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Power BI</span>
+                <span class="tag">Oracle</span>
+              </div>
+            </article>
+
+            <article class="item">
+              <div class="top">
+                <div class="title">Analista BI</div>
+                <div class="meta">2020 – 2022</div>
+              </div>
+              <div class="muted" style="font-size: 13px;">Banco Horizonte • Bogotá</div>
+              <ul class="muted" style="font-size: 13px; margin-top: 4px;">
+                <li>Data marts para riesgo de crédito y fraude</li>
+                <li>Reportes regulatorios automatizados con KNIME + SQL</li>
+                <li>Dashboards en Tableau para cartera, mora y recuperación</li>
+              </ul>
+              <div class="stack">
+                <span class="tag">Tableau</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Oracle</span>
+                <span class="tag">ETL</span>
+              </div>
+            </article>
+
+            <article class="item">
+              <div class="top">
+                <div class="title">Consultor de Datos</div>
+                <div class="meta">2018 – 2020</div>
+              </div>
+              <div class="muted" style="font-size: 13px;">Proyectos Freelance • Remoto</div>
+              <ul class="muted" style="font-size: 13px; margin-top: 4px;">
+                <li>Integraciones de APIs (ventas, marketing, CRM)</li>
+                <li>Informes semanales automatizados y alertas</li>
+                <li>Migración de Excel a Python + notebooks reproducibles</li>
+              </ul>
+              <div class="stack">
+                <span class="tag">APIs</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Excel</span>
+              </div>
+            </article>
           </div>
         </section>
 
+        <!-- Habilidades -->
+        <section id="habilidades">
+          <h2>Habilidades</h2>
+          <div class="list">
+            <div class="item">
+              <div class="title">Python</div>
+              <div class="muted" style="font-size: 12px;">Pandas, NumPy, scikit-learn, Jupyter</div>
+            </div>
+            <div class="item">
+              <div class="title">KNIME</div>
+              <div class="muted" style="font-size: 12px;">ETL, validaciones, reporting, orquestación</div>
+            </div>
+            <div class="item">
+              <div class="title">SQL</div>
+              <div class="muted" style="font-size: 12px;">Oracle, PostgreSQL, modelado, optimización</div>
+            </div>
+            <div class="item">
+              <div class="title">BI</div>
+              <div class="muted" style="font-size: 12px;">Power BI, Tableau, DAX, storytelling</div>
+            </div>
+            <div class="item">
+              <div class="title">Complementos</div>
+              <div class="stack" style="margin-top: 4px;">
+                <span class="tag">Git</span>
+                <span class="tag">APIs</span>
+                <span class="tag">Excel avanzado</span>
+                <span class="tag">Regex</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border);">
+            <div style="font-weight: 700; margin-bottom: 8px;">Educación</div>
+            <div class="item" style="padding: 0;">
+              <div class="title" style="font-size: 13px;">Ingeniería de Sistemas (B.Sc.)</div>
+              <div class="muted" style="font-size: 12px;">Universidad Nacional • 2013 – 2018</div>
+            </div>
+            <div class="item" style="padding: 0; margin-top: 8px;">
+              <div class="title" style="font-size: 13px;">Diplomado en Analítica de Datos</div>
+              <div class="muted" style="font-size: 12px;">Uniandes • 2019</div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Contacto -->
+      <section id="contacto">
+        <h2>Contacto</h2>
         <div class="grid2">
-          <section id="experiencia" aria-labelledby="h-experiencia">
-            <h2 id="h-experiencia">Experiencia</h2>
-            <div class="list">
-              <article class="item">
-                <div class="top">
-                  <div class="title">Analista de Datos — Grupo Retail Andino</div>
-                  <div class="meta">2022 — Presente • Bogotá</div>
-                </div>
-                <ul class="muted" style="margin: 0 0 0 18px">
-                  <li>Modelo de ventas diario con imputación y ajuste</li> por estacionalidad.</li>
-                  <li>Pipeline</li> KNIME + Python integrando POS, e-commerce y logística (SLA &lt; 30 min).</li>
-                  <li>Tab</li>lero ejecutivo en Power BI (crecimiento, conversión, rotación, OOS).</li>
-                  <li>Marco</li> de calidad (regex, outliers, duplicados) y auditoría.</li>
-                </ul>
-                <div class="stack" aria-label="Tecnologías">
-                  <span class="tag">Python</span><span class="tag">KNIME</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Oracle</span>
-                </div>
-              </article>
-
-              <article class="item">
-                <div class="top">
-                  <div class="title">Analista BI — Banco Horizonte</div>
-                  <div class="meta">2020 — 2022 • Bogotá</div>
-                </div>
-                <ul class="muted" style="margin: 0 0 0 18px">
-                  <li>Data marts para riesgo de crédito y fraude.</li></li>
-                  <li>Reportes regulatorios automatizados (</li>KNIME + SQL) con validaciones.</li>
-                  <li>Diccionario de datos y traz</li>abilidad en campos críticos.</li>
-                  <li>Dashboards en</li> Tableau para cartera, mora y recuperación.</li>
-                </ul>
-                <div class="stack" aria-label="Tecnologías">
-                  <span class="tag">Tableau</span><span class="tag">PostgreSQL</span><span class="tag">Oracle</span><span class="tag">ETL</span>
-                </div>
-              </article>
+          <div class="item">
+            <div class="top">
+              <div class="title">Información</div>
             </div>
-          </section>
-
-          <section id="habilidades" aria-labelledby="h-habilidades">
-            <h2 id="h-habilidades">Habilidades</h2>
-            <div class="list">
-              <div class="item">
-                <div class="top"><div class="title">Python</div><div class="meta">Pandas, NumPy, scikit-learn, Jupyter</div></div>
+            <div class="list" style="gap: 6px;">
+              <div class="stack" style="margin: 0;">
+                <span class="tag">Correo</span>
+                <span class="muted">contacto.christianruiz+cv@datica.local</span>
               </div>
-              <div class="item">
-                <div class="top"><div class="title">KNIME</div><div class="meta">ETL, validaciones, reporting</div></div>
+              <div class="stack" style="margin: 0;">
+                <span class="tag">Teléfono</span>
+                <span class="muted">(+57) 300 000 0000</span>
               </div>
-              <div class="item">
-                <div class="top"><div class="title">SQL</div><div class="meta">Oracle, PostgreSQL, modelado y optimización</div></div>
+              <div class="stack" style="margin: 0;">
+                <span class="tag">LinkedIn</span>
+                <a href="#" rel="nofollow">/christianruiz-analista</a>
               </div>
-              <div class="item">
-                <div class="top"><div class="title">BI</div><div class="meta">Power BI, Tableau, storytelling</div></div>
+              <div class="stack" style="margin: 0;">
+                <span class="tag">GitHub</span>
+                <a href="#" rel="nofollow">/chruiz-data</a>
               </div>
-              <div class="stack" aria-label="Complementos">
-                <span class="tag">Git</span><span class="tag">APIs</span><span class="tag">Excel avanzado</span><span class="tag">Regex</span>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <section id="contacto" aria-labelledby="h-contacto">
-          <h2 id="h-contacto">Contacto</h2>
-          <div class="grid2">
-            <div class="item">
-              <div class="top"><div class="title">Información</div><div class="meta">Respuesta rápida</div></div>
-              <div class="list">
-                <div class="stack" aria-label="Correo"><span class="tag">Correo</span><span class="muted">contacto.christianruiz+cv@datica.local</span></div>
-                <div class="stack" aria-label="Teléfono"><span class="tag">Teléfono</span><span class="muted">(+57) 300 000 0000</span></div>
-                <div class="stack" aria-label="LinkedIn"><span class="tag">LinkedIn</span><a href="#" rel="nofollow">/christianruiz-analista</a></div>
-                <div class="stack" aria-label="GitHub"><span class="tag">GitHub</span><a href="#" rel="nofollow">/chruiz-data</a></div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="top"><div class="title">Intereses</div><div class="meta">DataOps</div></div>
-              <div class="stack"><span class="tag">Orquestación</span><span class="tag">Calidad de datos</span><span class="tag">Time-series</span><span class="tag">Forecast</span></div>
             </div>
           </div>
-        </section>
+          <div class="item">
+            <div class="title">Intereses</div>
+            <div class="stack" style="margin-top: 8px;">
+              <span class="tag">Orquestación</span>
+              <span class="tag">Data Quality</span>
+              <span class="tag">Time-series</span>
+              <span class="tag">Forecast</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <div class="footer">© <span id="year"></span> Christian Ruiz • CV mínimo y elegante</div>
-      </main>
-    </div>
+      <div class="footer">
+        © <span id="year"></span> Christian Ruiz • Analista de Datos
+      </div>
+    </main>
+  </div>
 
-    <script>
-      // Tema claro/oscuro con persistencia
-      (function () {
-        const html = document.documentElement;
-        const toggle</script> = document.getElementById('themeToggle');
-        const saved = localStorage.getItem('cv-theme') || 'light';
-        html.setAttribute('data-theme', saved);
-        toggle.addEventListener('click', () => {
-          const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-          html.setAttribute('data-theme', next);
-          localStorage.setItem('cv-theme', next);
+  <script>
+    // Tema claro/oscuro con persistencia
+    (function () {
+      const html = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+      const saved = localStorage.getItem('cv-theme') || 'light';
+
+      html.setAttribute('data-theme', saved);
+      updateThemeIcon();
+
+      toggle.addEventListener('click', function () {
+        const current = html.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('cv-theme', next);
+        updateThemeIcon();
+      });
+
+      function updateThemeIcon() {
+        const theme = html.getAttribute('data-theme');
+        toggle.textContent = theme === 'light' ? '🌙' : '☀️';
+      }
+    })();
+
+    // Navegación suave entre secciones
+    (function () {
+      const navBtns = document.querySelectorAll('.sections .btn');
+
+      navBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+          const targetId = this.getAttribute('data-target');
+          const target = document.getElementById(targetId);
+
+          if (target) {
+            navBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         });
-      })();
+      });
 
-      // Navegación básica: scroll y estado activo
-      (function () {
-        const navBtns = document.querySelectorAll('.sections .btn');
-        const sections = Array.from(navBtns).map(b => document.getElementById(b.dataset.target));
-        navBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            const id = btn.dataset.target;
-            const el = document.getElementById(id);
-            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          });
-        });
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            const id = entry.target.id;
-            const btn = document.querySelector(`.sections .btn[data-target="${id}"]`);
+      // Detectar sección visible al scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              document.querySelectorAll('.sections .btn').forEach(b => b.classList.remove('active'));
-              if (btn) btn.classList.add('active');
+              const id = entry.target.id;
+              const btn = document.querySelector(`.sections .btn[data-target="${id}"]`);
+              if (btn) {
+                navBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+              }
             }
           });
-        }, { rootMargin: '-50% 0px -50% 0px', threshold: 0.1 });
-        sections.forEach(s => s && observer.observe(s));
-      })();
+        },
+        { rootMargin: '-50% 0px -50% 0px' }
+      );
 
-      // Año dinámico
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-  </body>
+      document.querySelectorAll('section[id]').forEach(section => {
+        observer.observe(section);
+      });
+    })();
+
+    // Año dinámico
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
