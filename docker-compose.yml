@@ -5,6 +5,3 @@ services:
     image: nginx:alpine
     volumes:
       - .:/usr/share/nginx/html:ro
-    ports:
-      - "80:80"
-    restart: unless-stopped
