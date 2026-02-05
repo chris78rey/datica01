@@ -1,27 +1,22 @@
 <!doctype html>
-<html lang="es">
-  <head></head>
-    <meta charset="utf-8" />
+<html lang="es" data-theme="light">
+  <head>
+    <meta charset="utf-8"</head> />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hoja de Vida — Christian Ruiz (Analista de Datos)</</title>title>
-    <meta name="description" content="Hoja de vida ordenada, entendible e interactiva de Christian Ruiz, Analista de Datos con experiencia en Python, KNIME, Oracle y BI." />
-    <style>
-      :root {</style>
+    <title>Christian Ruiz — Analista de</title> Datos</title>
+    <meta name="description" content="CV mínimo, elegante y bien formado con tema claro/oscuro y navegación básica." />
+    <style></style>
+      :root {
         --bg: #ffffff;
         --text: #0f172a;
-        --muted: #475569;
+        --muted: #64748b;
         --card: #f8fafc;
         --border: #e2e8f0;
         --primary: #0ea5e9;
         --accent: #7c3aed;
-        --ok: #16a34a;
-        --warn: #f59e0b;
-        --danger: #ef4444;
-        --radius: 14px;
-        --radius-sm: 10px;
-        --radius-xs: 8px;
-        --shadow: 0 10px 30px rgba(2,6,23,0.08);
-        --maxw: 1080px;
+        --radius: 12px;
+        --shadow: 0 8px 24px rgba(2, 6, 23, 0.08);
+        --maxw: 920px;
       }
       [data-theme="dark"] {
         --bg: #0b1220;
@@ -29,7 +24,7 @@
         --muted: #94a3b8;
         --card: #0f172a;
         --border: #1f2937;
-        --shadow: 0 10px 30px rgba(0,0,0,0.30);
+        --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
       }
       * { box-sizing: border-box }
       html, body {
@@ -37,59 +32,44 @@
         background: var(--bg);
         color: var(--text);
         font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+        line-height: 1.55;
       }
       a { color: var(--primary); text-decoration: none }
       a:hover { text-decoration: underline }
       .wrap { max-width: var(--maxw); margin: 0 auto; padding: 20px }
       header {
-        position: sticky; top: 0; z-index: 50;
+        position: sticky; top: 0; z-index: 20;
         background: var(--bg);
         border-bottom: 1px solid var(--border);
       }
       .nav {
-        display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center;
-        padding: 12px 0;
+        display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center;
+        padding: 10px 0;
       }
-      .brand {
-        display: flex; gap: 12px; align-items: center;
-      }
+      .brand { display: flex; gap: 12px; align-items: center }
       .avatar {
-        width: 42px; height: 42px; border-radius: 50%;
-        display: grid; place-items: center;
-        font-weight: 700;
+        width: 40px; height: 40px; border-radius: 50%;
+        display: grid; place-items: center; font-weight: 700;
         background: linear-gradient(135deg, var(--primary), var(--accent));
-        color: #fff;
-        box-shadow: var(--shadow);
+        color: #fff; box-shadow: var(--shadow);
       }
-      .brand-info {
-        display: grid; gap: 2px;
-      }
-      .brand-info .name { font-weight: 700; letter-spacing: .2px }
+      .brand-info { display: grid; gap: 2px }
+      .brand-info .name { font-weight: 700 }
       .brand-info .role { color: var(--muted); font-size: 13px }
-      .nav-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap }
+      .nav-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap }
       .btn {
         display: inline-flex; align-items: center; gap: 8px;
-        padding: 8px 12px;
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        background: var(--card);
-        color: var(--text);
-        cursor: pointer;
-        font-weight: 600;
+        padding: 8px 12px; border: 1px solid var(--border);
+        border-radius: 10px; background: var(--card);
+        color: var(--text); cursor: pointer; font-weight: 600;
         box-shadow: var(--shadow);
       }
-      .btn.primary {
-        background: linear-gradient(90deg, var(--primary), var(--accent));
-        border: none; color: #fff;
-      }
-      .btn.ghost {
-        background: transparent;
-      }
+      .btn.ghost { background: transparent }
+      .btn.primary { background: linear-gradient(90deg, var(--primary), var(--accent)); border: none; color: #fff }
       .btn:active { transform: translateY(1px) }
-      .grid {
-        display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;
-      }
-      @media (max-width: 960px) { .grid { grid-template-columns: 1fr } }
+      .sections { display: flex; gap: 8px; flex-wrap: wrap }
+      .sections .btn.active { color: var(--primary); border-color: var(--primary) }
+      main { display: grid; gap: 16px; margin-top: 16px }
       section {
         background: var(--card);
         border: 1px solid var(--border);
@@ -97,522 +77,191 @@
         box-shadow: var(--shadow);
         padding: 16px;
       }
-      section h2 { margin: 0 0 10px 0; font-size: 18px }
+      section h2 { margin: 0 0 8px 0; font-size: 20px }
       .muted { color: var(--muted) }
-      .summary {
-        display: grid; gap: 10px;
-      }
-      .chips { display: flex; gap: 8px; flex-wrap: wrap }
+      .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px }
       .chip {
         display: inline-flex; align-items: center; gap: 6px;
         padding: 6px 10px; border-radius: 999px;
         background: #eef2ff; color: #1e293b; border: 1px solid #c7d2fe;
       }
-      [data-theme="dark"] .chip {
-        background: #0b1a38; color: var(--text); border-color: #1e3a8a;
-      }
-      .dot { width: 8px; height: 8px; border-radius: 50% }
-      .dot.ok { background: var(--ok) }
-      .dot.warn { background: var(--warn) }
-      .dot.danger { background: var(--danger) }
-      details {
-        border: 1px dashed var(--border);
-        border-radius: var(--radius-sm);
-        padding: 10px;
-        background: transparent;
-      }
-      summary {
-        cursor: pointer; font-weight: 600; display: flex; align-items: center; gap: 8px;
-      }
-      summary::marker { content: "" }
-      .caret { width: 8px; height: 8px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(-45deg); transition: transform .2s ease }
-      details[open] .caret { transform: rotate(45deg) }
-      .list { display: grid; gap: 10px }
-      .item {
-        display: grid; gap: 8px;
-        padding: 12px; border-radius: var(--radius-xs);
-        border: 1px solid var(--border);
-        background: transparent;
-      }
-      .top { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: baseline }
+      [data-theme="dark"] .chip { background: #0b1a38; color: var(--text); border-color: #1e3a8a }
+      .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px }
+      @media (max-width: 840px) { .grid2 { grid-template-columns: 1fr } }
+      .list { display: grid; gap: 12px }
+      .item { display: grid; gap: 6px; padding: 8px; border: 1px dashed var(--border); border-radius: 10px }
+      .top { display: grid; grid-template-columns: 1fr auto; gap: 8px }
       .title { font-weight: 700 }
       .meta { color: var(--muted); font-size: 13px }
       .stack { display: flex; gap: 6px; flex-wrap: wrap }
-      .tag {
-        padding: 4px 8px; border-radius: 999px;
-        border: 1px solid var(--border);
-        font-size: 12px; color: var(--muted); background: transparent;
-      }
-      .progress {
-        height: 8px; border-radius: 999px; border: 1px solid var(--border);
-        overflow: hidden; background: #eef2ff;
-      }
-      [data-theme="dark"] .progress { background: #0b1a38 }
-      .progress > span {
-        display: block; height: 100%;
-        background: linear-gradient(90deg, var(--primary), var(--accent));
-      }
-      .toolbar {
-        display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
-        margin-top: 6px;
-      }
-      .search {
-        display: inline-flex; align-items: center; gap: 8px;
-        padding: 8px 12px;
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        background: var(--bg);
-      }
-      .search input {
-        border: none; outline: none; background: transparent; color: var(--text);
-        min-width: 180px;
-      }
-      .footer {
-        margin: 24px 0; color: var(--muted); text-align: center; font-size: 12px;
-      }
-      .sections-nav {
-        display: flex; gap: 8px; flex-wrap: wrap;
-      }
-      .sections-nav .btn {
-        padding: 6px 10px; font-weight: 600;
-        background: transparent;
-      }
-      .sections-nav .btn.active {
-        color: var(--primary);
-        border-color: var(--primary);
-      }
-      .hidden { display: none !important }
-      /* Print-friendly */
+      .tag { padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); font-size: 12px; color: var(--muted) }
+      .footer { margin: 20px 0; color: var(--muted); text-align: center; font-size: 12px }
+      html { scroll-behavior: smooth }
       @media print {
-        header, .toolbar, .sections-nav, .btn { display: none !important }
-        section { box-shadow: none }
+        header, .btn { display: none !important }
+        section { box-shadow: none; break-inside: avoid; }
         body { background: #fff }
       }
     </style>
   </head>
   <body>
-    <div class="wrap" id="app" data-theme="light">
-      <header>
+    <div class="wrap"></body>
+      <header aria-label="Barra de navegación">
         <div class="nav">
           <div class="brand">
             <div class="avatar" aria-label="Avatar">CR</div>
             <div class="brand-info">
               <div class="name">Christian Ruiz</div>
-              <div class="role">Analista de Datos • BI & Analytics</div></body></header>
+              <div class="role">Analista de Datos • BI & Analytics</div>
             </div>
           </div>
           <div class="nav-actions">
-            <nav class="sections-nav" aria-label="Navegación de secciones">
-              <button class="btn ghost active" data-target="resumen">Resumen</button>
-              <button class="btn ghost" data-target="experiencia">Experiencia</button>
-              <button class="btn ghost" data-target="habilidades">Habilidades</button>
-              <button class="btn ghost" data-target="proyectos">Proyectos</button>
-              <button class="btn ghost" data-target="formacion">Formación</button>
-              <button class="btn ghost" data-target="contacto">Contacto</button>
+            <nav class="sections" aria-label="Secciones">
+              <button class="btn ghost active" data-target="resumen" type="button">Resumen</button>
+              <button class="btn ghost" data-target="experiencia" type="button">Experiencia</button>
+              <button class="btn ghost" data-target="habilidades" type="button">Habilidades</button>
+              <button class="btn ghost" data-target="contacto" type="button">Contacto</button>
             </nav>
-            <button id="themeToggle" class="btn" aria-label="Cambiar tema">Tema claro/oscuro</button>
+            <button id="themeToggle" class="btn" type="button" aria-label="Cambiar tema">Tema</button>
             <a class="btn primary" href="#contacto">Contactar</a>
           </div>
         </div>
       </header>
 
-      <main>
-        <!-- Resumen -->
+      <main></main>
         <section id="resumen" aria-labelledby="h-resumen">
-          <h2 id="h-resumen">Resumen Profesional</h2>
-          <div class="summary">
-            <p class="muted">
-              Analista de Datos con experiencia en diseño de pipelines, modelado, visualización y gobierno
-              de datos. Competente en Python, KNIME y SQL (Oracle, PostgreSQL). Enfocado en métricas
-              accionables, calidad de información y automatización de procesos para acelerar toma de
-              decisiones</main> en equipos de negocio.
-            </p>
-            <div class="chips" aria-label="Datos clave">
-              <span class="chip"><span class="dot ok"></span> Disponible</span>
-              <span class="chip">Experiencia: 6+ años</span>
-              <span class="chip">Ubicación: Bogotá, Colombia</span>
-              <span class="chip">Idiomas: ES (Nativo), EN (B2)</span>
-              <span class="chip">Sectores: Retail, Financiero, Logística</span>
-            </div>
-
-            <details>
-              <summary><span class="caret"></span> Lo que aport</details>o</summary>
-              <ul class="muted" style="margin: 8px 0 0 18px">
-                <li>Automatización de procesos y orquestación de flujos reproducibles.</li>
-                <li>Calidad y trazabilidad de datos con validaciones y linaje.</li>
-                <li>Diseño de KPIs y tableros claros para equipos</li></li> ejecutivos y operativos.</li>
-              </ul>
-            </details>
+          <h2 id="h-resumen">Resumen</h2>
+          <p class="muted">
+            Analista de Datos con experiencia en pipelines, modelado y visualización. Competente en Python, KNIME y SQL
+            (Oracle/PostgreSQL). Enfoque en métricas accionables, calidad de datos y automatización para acelerar decisiones.
+          </p>
+          <div class="chips" aria-label="Datos clave">
+            <span class="chip">Disponible</span>
+            <span class="chip">Experiencia: 6+ años</span>
+            <span class="chip">Bogotá, Colombia</span>
+            <span class="chip">Español (Nativo) • Inglés (B2)</span>
           </div>
         </section>
 
-        <div class</li>="grid" style="margin-top: 20px">
-          <!-- Experiencia -->
+        <div class="grid2">
           <section id="experiencia" aria-labelledby="h-experiencia">
             <h2 id="h-experiencia">Experiencia</h2>
-
-            <div class="toolbar">
-              <label class="search" aria-label="Buscar en experiencia">
-                <span class="muted" aria-hidden="true">🔎</span>
-                <input id="expSearch" type="search" placeholder="Buscar por empresa, rol o tecnología..." />
-              </label>
-              <button class="btn ghost" data-filter="all">Todos</button>
-              <button class="btn ghost" data-filter="retail">Retail</button>
-              <button class="btn ghost" data-filter="banca">Banca</button>
-              <button class="btn ghost" data-filter="freelance">Freelance</button>
-            </div>
-
-            <div class="list" id="expList">
-              <div class="item" data-sector="retail" data-tags="python knime sql powerbi oracle qa tablero ventas">
+            <div class="list">
+              <article class="item">
                 <div class="top">
                   <div class="title">Analista de Datos — Grupo Retail Andino</div>
-                  <div class="meta">2022 — Presente • Bogotá, Colombia</div>
+                  <div class="meta">2022 — Presente • Bogotá</div>
                 </div>
                 <ul class="muted" style="margin: 0 0 0 18px">
-                  <li>Modelo de ventas diario con imputación y ajuste por estacionalidad.</li>
-                  <li>Pipeline KNIME + Python integrando POS, e-commerce y logística</li></li> (SLA &lt; 30 min).</li>
-                  <li>Tablero ejecutivo en Power BI (KPI: crecimiento, conversión, rotación, OOS).</li>
-                  <li>Marco de calidad (regex, outliers, duplicados) y auditoría.</li>
-                  <li>C</li>ierre mensual reducido de 2 días a 4</li> horas gracias a automatización.</li>
+                  <li>Modelo de ventas diario con imputación y ajuste</li> por estacionalidad.</li>
+                  <li>Pipeline</li> KNIME + Python integrando POS, e-commerce y logística (SLA &lt; 30 min).</li>
+                  <li>Tab</li>lero ejecutivo en Power BI (crecimiento, conversión, rotación, OOS).</li>
+                  <li>Marco</li> de calidad (regex, outliers, duplicados) y auditoría.</li>
                 </ul>
-                <div class="stack">
+                <div class="stack" aria-label="Tecnologías">
                   <span class="tag">Python</span><span class="tag">KNIME</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Oracle</span>
                 </div>
-              </div>
+              </article>
 
-              <div class="item" data-sector="banca" data-tags="bi tableau postgres oracle etl gobernanza riesgo fraude">
+              <article class="item">
                 <div class="top">
                   <div class="title">Analista BI — Banco Horizonte</div>
-                  <div class="meta">2020 — 2022 • Bogotá, Colombia</div>
+                  <div class="meta">2020 — 2022 • Bogotá</div>
                 </div>
                 <ul class="muted" style="margin: 0 0 0 18px">
-                  <li>Data marts para riesgo de crédito y fraude.</li>
-                  <li>Reportes regulatorios automatizados (KNIME + SQL) con validaciones.</li>
-                  <li>Diccionario de datos y trazabilidad</li></li></li> en campos críticos.</li>
-                  <li>Dashboards en Tableau para cartera, mora y recuperación.</li>
+                  <li>Data marts para riesgo de crédito y fraude.</li></li>
+                  <li>Reportes regulatorios automatizados (</li>KNIME + SQL) con validaciones.</li>
+                  <li>Diccionario de datos y traz</li>abilidad en campos críticos.</li>
+                  <li>Dashboards en</li> Tableau para cartera, mora y recuperación.</li>
                 </ul>
-                <div class="stack">
-                  <span class="tag">Tableau</span><span class="tag">PostgreSQL</span><span class="tag">Oracle</li></span><span class="tag">ETL</span><span class="tag">Gobernanza</span>
+                <div class="stack" aria-label="Tecnologías">
+                  <span class="tag">Tableau</span><span class="tag">PostgreSQL</span><span class="tag">Oracle</span><span class="tag">ETL</span>
                 </div>
-              </div>
-
-              <div class="item" data-sector="freelance" data-tags="api pandas excel visualizacion alertas marketing crm integraciones">
-                <div class="top">
-                  <div class="title">Consultor de Datos — Proyectos Freelance</div>
-                  <div class="meta">2018 — 2020 • Remoto</div>
-                </div>
-                <ul class="muted" style="margin: 0 0 0 18px">
-                  <li>Integraciones de APIs (ventas, marketing, CRM) y normalización.</li>
-                  <li>Informes semanales automatizados y alertas de anomalías.</li>
-                  <li>Migración de Excel a soluciones reproducibles con Python + notebooks.</li>
-                </ul>
-                <div class="stack">
-                  <span class="tag">APIs</span><span class="tag">Pandas</li></li></span><span class="tag">Excel</span><span class="tag">Visualización</span>
-                </div>
-              </div>
+              </article>
             </div>
           </section>
 
-          <!-- Habilidades -->
           <section id="habilidades" aria-labelledby="h-habilidades">
-            <h2 id="h-habilidades">Habilidades técnicas</h2>
-
-            <details open>
-              <summary><span class="caret"></span> Lenguajes y herramientas</summary>
-              <div class="list">
-                <div class="item">
-                  <div class="top"><div class="title">Python</div><div class</details>="meta">Pandas, Polars, NumPy, SciPy, scikit-learn, Jupyter</div></div>
-                  <div class="progress" aria-label="Nivel Python"><span style="width: 88%"></span></div>
-                </div>
-                <div class="item">
-                  <div class="top"><div class="title">KNIME</div><div class="meta">ETL, orquestación, validaciones, reporting</div></div>
-                  <div class="progress" aria-label="Nivel KNIME"><span style="width: 85%"></span></div>
-                </div>
-                <div class="item">
-                  <div class="top"><div class="title">SQL (Oracle / PostgreSQL)</div><div class="meta">Modelado, optimización, PL/SQL básico</div></div>
-                  <div class="progress" aria-label="Nivel SQL"><span style="width: 82%"></span></div>
-                </div>
-                <div class="item">
-                  <div class="top"><div class="title">BI</div><div class="meta">Power BI, Tableau, DAX, storytelling</div></div>
-                  <div class="progress" aria-label="Nivel BI"><span style="width: 78%"></span></div>
-                </div>
-                <div class="item">
-                  <div class="top"><div class="title">Automatización</div><div class="meta">Scripts, scheduling, alertas</div></div>
-                  <div class="progress" aria-label="Nivel Automatización"><span style="width: 76%"></span></div>
-                </div>
-                <div class="stack" style="margin-top: 6px">
-                  <span class="tag">Git</span><span class="tag">APIs REST</span><span class="tag">Excel avanzado</span><span class="tag">Regex</span><span class="tag">CSV/Parquet</span><span class="tag">Data Marts</span><span class="tag">Modelado dimensional</span>
-                </div>
+            <h2 id="h-habilidades">Habilidades</h2>
+            <div class="list">
+              <div class="item">
+                <div class="top"><div class="title">Python</div><div class="meta">Pandas, NumPy, scikit-learn, Jupyter</div></div>
               </div>
-            </details>
-
-            <details>
-              <summary><span class="caret"></span> Intereses técnicos</summary>
-              <div class="stack" style="margin-top: 6px">
-                <span class="tag">Data Quality</span><span class="tag">DataOps</span><span class="tag">Orquestación</span>
-                <span class="tag">Time-series</span><span class="tag">Segmentación</span><span class="tag">Forecast</details></span>
+              <div class="item">
+                <div class="top"><div class="title">KNIME</div><div class="meta">ETL, validaciones, reporting</div></div>
               </div>
-            </details>
+              <div class="item">
+                <div class="top"><div class="title">SQL</div><div class="meta">Oracle, PostgreSQL, modelado y optimización</div></div>
+              </div>
+              <div class="item">
+                <div class="top"><div class="title">BI</div><div class="meta">Power BI, Tableau, storytelling</div></div>
+              </div>
+              <div class="stack" aria-label="Complementos">
+                <span class="tag">Git</span><span class="tag">APIs</span><span class="tag">Excel avanzado</span><span class="tag">Regex</span>
+              </div>
+            </div>
           </section>
         </div>
 
-        <div class="grid" style="margin-top: 20px">
-          <!-- Proyectos -->
-          <section id="proyectos" aria-labelledby="h-proyectos">
-            <h2 id="h-proyectos">Proyectos destacados</h2>
-
-            <div class="toolbar">
-              <label class="search" aria-label="Buscar proyectos">
-                <span class="muted" aria-hidden="true">🔎</span>
-                <input id="projSearch" type="search" placeholder="Buscar por nombre, tecnología o impacto..." />
-              </label>
-              <button class="btn ghost" data-proj-filter="all">Todos</button>
-              <button class="btn ghost" data-proj-filter="python">Python</button>
-              <button class="btn ghost" data-proj-filter="knime">KNIME</button>
-              <button class="btn ghost" data-proj-filter="bi">BI</button>
-            </div>
-
-            <div class="list" id="projList">
-              <details class="item" data-tags="knime python powerbi oos retail" open>
-                <summary><span class="caret"></span> Monitor de quiebres (OOS) — <span class="muted">Impacto: -22% OOS</span></summary>
-                <p class="muted">Detección temprana de quiebres por SKU y tienda, con alertas y priorización de reposición.</p></details>
-                <div class="stack"><span class="tag">KNIME</span><span class="tag">Python</span><span class="tag">Power BI</span></div>
-              </details>
-
-              <details class="item" data-tags="pandas oracle postgres omnicanal ventas" open>
-                <summary><span class="caret"></span> Pipeline de ventas omnicanal — <span class="muted">SLA: 25 min</span></summary>
-                <p class="muted">Unificación de POS y e-commerce con conciliación diaria,</details> corrección de duplicados y estornos.</p>
-                <div class="stack"><span class="tag">Pandas</span><span class="tag">Oracle</span><span class="tag">PostgreSQL</span></div>
-              </details>
-
-              <details class="item" data-tags="sklearn abtesting features marketing" open>
-                <summary><span class="caret"></span> Score de propensión a compra —</details> <span class="muted">AUM: 5M transacciones</span></summary>
-                <p class="muted">Clasificación para priorizar campañas y segmentación por probabilidad de compra en 7 días.</p>
-                <div class="stack"><span class="tag">scikit-learn</span><span class="tag">Feature engineering</span><span class="tag">A/B testing</span></div>
-              </details>
-
-              <details class="item" data-tags="knime python airflow calidad linaje" open>
-                <summary><span class="caret"></span> Data Quality Framework — <span class="muted">Cobertura: 18 checks</span></summary>
-                <p class="muted">Validaciones, monitoreo, linaje y reglas de negocio con auditoría de cambios.</p>
-                <div class="stack"><span class="tag">KNIME</span><span class="tag">Python</span><span class="tag">Airflow (conceptos)</span></div>
-              </details>
-            </div>
-          </section>
-
-          <!-- Formación -->
-          <section id="</details>formacion" aria-labelledby="h-formacion">
-            <h2 id="h-formacion">Formación</h2>
-
-            <details open>
-              <summary><span class="caret"></</details>span> Educación</summary>
-              <div class="list">
-                <div class="item">
-                  <div class="top">
-                    <div class="title">Ingeniería de Sistemas (B.Sc.)</div>
-                    <div class="meta">Universidad Nacional • 2013 — 2018</div>
-                  </div>
-                  <div class="muted">Énfasis en bases de datos y analítica.</div>
-                </div>
-                <div class="item">
-                  <div class="top">
-                    <div class="title">Diplomado en Analítica de Datos</div>
-                    <div class="meta">Uniandes • 2019</div>
-                  </div>
-                  <div class="muted">Modelado, visualización y métricas clave.</div>
-                </div>
-              </div>
-            </details>
-
-            <details>
-              <summary><span class="caret"></span> Certificaciones</summary>
-              <div class="grid" style="margin-top: 10px">
-                <div class="item">
-                  <div class="</details>top">
-                    <div class="title">Oracle SQL Expert</div>
-                    <div class="meta">Vigente</div>
-                  </div>
-                  <div class="muted">Consultas avanzadas, performance y PL/SQL básico.</div>
-                </div>
-                <div class="item">
-                  <div class="top">
-                    <div class="title">Power BI Data Analyst</div>
-                    <div class="meta">2023</div>
-                  </div>
-                  <div class="muted">Modelado, DAX y storytelling.</div>
-                </div>
-                <div class="item">
-                  <div class="top">
-                    <div class="title">KNIME Analytics Basics</div>
-                    <div class="meta">2022</div>
-                  </div>
-                  <div class="muted">Flujos ETL, nodos, validación y reporting.</div>
-                </div>
-                <div class="item">
-                  <div class="top">
-                    <div class="title">Python para Data Science</div>
-                    <div class="meta">2020</div>
-                  </div>
-                  <div class="muted">Pandas, NumPy, scikit-learn, notebooks.</div>
-                </div>
-              </div>
-            </details>
-          </section>
-        </div>
-
-        <!-- Contacto -->
-        <section id="contacto" aria-labelledby="h-contacto" style="margin-top: 20px">
+        <section id="contacto" aria-labelledby="h-contacto">
           <h2 id="h-contacto">Contacto</h2>
-          <div class="grid">
+          <div class="grid2">
             <div class="item">
-              <div class="top">
-                <div class="title">Información</div>
-                <div class="meta">Respuesta típica: rápida</div>
-              </div>
+              <div class="top"><div class="title">Información</div><div class="meta">Respuesta rápida</div></div>
               <div class="list">
-                <div class="stack">
-                  <span class="tag">Correo</span>
-                  <span class="muted">contacto.christianruiz+cv@datica.local</span>
-                </div>
-                <div class="stack">
-                  <span class="tag">Teléfono</span>
-                  <span class="muted">(+57) 300 000 0000</span>
-                </div>
-                <div class="stack">
-                  <span class="tag">LinkedIn</span>
-                  <a href="#" rel="nofollow">/christianruiz-analista</a>
-                </div>
-                <div class="stack">
-                  <span class="tag">GitHub</span>
-                  <a href="#" rel="nofollow">/chruiz-data</a>
-                </div>
+                <div class="stack" aria-label="Correo"><span class="tag">Correo</span><span class="muted">contacto.christianruiz+cv@datica.local</span></div>
+                <div class="stack" aria-label="Teléfono"><span class="tag">Teléfono</span><span class="muted">(+57) 300 000 0000</span></div>
+                <div class="stack" aria-label="LinkedIn"><span class="tag">LinkedIn</span><a href="#" rel="nofollow">/christianruiz-analista</a></div>
+                <div class="stack" aria-label="GitHub"><span class="tag">GitHub</span><a href="#" rel="nofollow">/chruiz-data</a></div>
               </div>
             </div>
             <div class="item">
-              <div class="top">
-                <div class="title">Intereses</div>
-                <div class="meta">DataOps</div>
-              </div>
-              <div class="stack">
-                <span class="tag">Orquestación</span><span class="tag">Data Quality</span>
-                <span class="tag">Time-series</span><span class="tag">Forecast</span>
-                <span class="tag">Segmentación</span>
-              </div>
+              <div class="top"><div class="title">Intereses</div><div class="meta">DataOps</div></div>
+              <div class="stack"><span class="tag">Orquestación</span><span class="tag">Calidad de datos</span><span class="tag">Time-series</span><span class="tag">Forecast</span></div>
             </div>
           </div>
         </section>
 
-        <div class="footer">
-          © <span id="year"></span> Christian Ruiz. CV ordenado, entendible e interactivo.
-        </div>
+        <div class="footer">© <span id="year"></span> Christian Ruiz • CV mínimo y elegante</div>
       </main>
     </div>
 
     <script>
-      // Persistencia de tema
+      // Tema claro/oscuro con persistencia
       (function () {
-        const app = document.getElementById('app');
-        const btn = document.getElementById('themeToggle');
-        const saved = localStorage.getItem('cv-theme')</script> || 'light';
-        app.setAttribute('data-theme', saved);
-
-        btn.addEventListener('click', () => {
-          const next = app.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-          app.setAttribute('data-theme', next);
+        const html = document.documentElement;
+        const toggle</script> = document.getElementById('themeToggle');
+        const saved = localStorage.getItem('cv-theme') || 'light';
+        html.setAttribute('data-theme', saved);
+        toggle.addEventListener('click', () => {
+          const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+          html.setAttribute('data-theme', next);
           localStorage.setItem('cv-theme', next);
         });
       })();
 
-      // Navegación de secciones (scroll y activo)
+      // Navegación básica: scroll y estado activo
       (function () {
-        const navBtns = document.querySelectorAll('.sections-nav .btn');
+        const navBtns = document.querySelectorAll('.sections .btn');
         const sections = Array.from(navBtns).map(b => document.getElementById(b.dataset.target));
-
         navBtns.forEach(btn => {
           btn.addEventListener('click', () => {
             const id = btn.dataset.target;
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
           });
         });
-
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             const id = entry.target.id;
-            const btn = document.querySelector(`.sections-nav .btn[data-target="${id}"]`);
+            const btn = document.querySelector(`.sections .btn[data-target="${id}"]`);
             if (entry.isIntersecting) {
-              document.querySelectorAll('.sections-nav .btn').forEach(b => b.classList.remove('active'));
+              document.querySelectorAll('.sections .btn').forEach(b => b.classList.remove('active'));
               if (btn) btn.classList.add('active');
             }
           });
-        }, { rootMargin: '-40% 0px -40% 0px', threshold: 0.1 });
-
+        }, { rootMargin: '-50% 0px -50% 0px', threshold: 0.1 });
         sections.forEach(s => s && observer.observe(s));
-      })();
-
-      // Filtro y búsqueda en experiencia
-      (function () {
-        const input = document.getElementById('expSearch');
-        const items = document.querySelectorAll('#expList .item');
-        const filterBtns = document.querySelectorAll('#experiencia [data-filter]');
-
-        function applyFilters() {
-          const q = (input.value || '').toLowerCase().trim();
-          const activeBtn = document.querySelector('#experiencia [data-filter].active');
-          const sector = activeBtn ? activeBtn.dataset.filter : 'all';
-
-          items.forEach(el => {
-            const tags = (el.dataset.tags || '').toLowerCase();
-            const sec = el.dataset.sector || 'all';
-            const matchesText = !q || tags.includes(q);
-            const matchesSector = sector === 'all' || sec === sector;
-            el.classList.toggle('hidden', !(matchesText && matchesSector));
-          });
-        }
-
-        input.addEventListener('input', applyFilters);
-        filterBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            applyFilters();
-          });
-        });
-
-        // Inicial
-        document.querySelector('#experiencia [data-filter="all"]').classList.add('active');
-        applyFilters();
-      })();
-
-      // Búsqueda en proyectos
-      (function () {
-        const input = document.getElementById('projSearch');
-        const items = document.querySelectorAll('#projList .item');
-        const filterBtns = document.querySelectorAll('#proyectos [data-proj-filter]');
-
-        function applyProjFilters() {
-          const q = (input.value || '').toLowerCase().trim();
-          const activeBtn = document.querySelector('#proyectos [data-proj-filter].active');
-          const tagFilter = activeBtn ? activeBtn.dataset.projFilter : 'all';
-
-          items.forEach(el => {
-            const tags = (el.dataset.tags || '').toLowerCase();
-            const matchesText = !q || tags.includes(q);
-            const matchesTag = tagFilter === 'all' || tags.includes(tagFilter);
-            el.classList.toggle('hidden', !(matchesText && matchesTag));
-          });
-        }
-
-        input.addEventListener('input', applyProjFilters);
-        filterBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            applyProjFilters();
-          });
-        });
-
-        // Inicial
-        document.querySelector('#proyectos [data-proj-filter="all"]').classList.add('active');
-        applyProjFilters();
       })();
 
       // Año dinámico
