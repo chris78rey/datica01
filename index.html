@@ -3,10 +3,518 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>DA-TICA</title>
+    <title>Christian Ruiz — Analista de Datos</title>
+    <meta name="description" content="Hoja de vida autocontenida de Christian Ruiz, Analista de Datos con experiencia en Python, KNIME, Oracle, y más." />
+    <style>
+      :root {
+        --bg: #0f172a;            /* slate-900 */
+        --bg-alt: #0b1220;
+        --card: #111827;          /* gray-900 */
+        --text: #e5e7eb;          /* gray-200 */
+        --muted: #9ca3af;         /* gray-400 */
+        --primary: #22d3ee;       /* cyan-400 */
+        --accent: #a78bfa;        /* violet-400 */
+        --ok: #34d399;            /* green-400 */
+        --warn: #f59e0b;          /* amber-500 */
+        --danger: #ef4444;        /* red-500 */
+        --border: #1f2937;        /* gray-800 */
+        --shadow: 0 10px 30px rgba(0,0,0,0.35);
+        --radius: 14px;
+        --radius-sm: 10px;
+        --radius-xs: 8px;
+        --maxw: 1120px;
+      }
+      * { box-sizing: border-box }
+      html, body {
+        background: radial-gradient(1200px 800px at 20% 0%, #0b1220 0%, var(--bg) 60%, #0a0f1a 100%);
+        color: var(--text);
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+        margin: 0;
+      }
+      a { color: var(--primary); text-decoration: none }
+      a:hover { text-decoration: underline }
+      .wrap {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 42px 24px 64px;
+      }
+      header {
+        display: grid;
+        grid-template-columns: 120px 1fr auto;
+        gap: 24px;
+        align-items: center;
+        margin-bottom: 32px;
+      }
+      .avatar {
+        width: 120px; height: 120px; border-radius: 50%;
+        background: linear-gradient(135deg, #1e293b, #0f172a);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        display: grid; place-items: center; font-weight: 700; color: var(--muted);
+        letter-spacing: 1px;
+      }
+      .title h1 {
+        margin: 0;
+        font-size: 32px; line-height: 1.15;
+        letter-spacing: 0.3px;
+      }
+      .title .role {
+        margin-top: 6px; color: var(--muted);
+      }
+      .header-actions {
+        display: flex; gap: 8px; flex-wrap: wrap;
+      }
+      .chip {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 10px 14px;
+        background: #0c182a;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        color: var(--text);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+        font-size: 13px;
+      }
+      .chip .dot {
+        width: 8px; height: 8px; border-radius: 50%;
+        background: var(--ok);
+        box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.15);
+      }
+      main {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 20px;
+      }
+      @media (max-width: 980px) {
+        main { grid-template-columns: 1fr }
+        header { grid-template-columns: 90px 1fr; }
+        .header-actions { grid-column: 1 / -1; justify-content: flex-start; }
+        .avatar { width: 90px; height: 90px; font-size: 12px; }
+      }
+      section {
+        background: linear-gradient(180deg, var(--card), #0e1626);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 22px;
+      }
+      section h2 {
+        margin: 0 0 10px 0;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+      }
+      .muted { color: var(--muted) }
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      @media (max-width: 640px) {
+        .grid-2 { grid-template-columns: 1fr }
+      }
+      .list, .skills { display: grid; gap: 8px }
+      .item {
+        display: grid;
+        gap: 6px;
+        padding: 12px;
+        border: 1px dashed var(--border);
+        border-radius: var(--radius-sm);
+        background: #0d1322;
+      }
+      .item .top {
+        display: flex; gap: 12px; justify-content: space-between; align-items: baseline;
+      }
+      .item .title {
+        font-weight: 600;
+      }
+      .item .meta {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .badge {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 6px 10px; border-radius: 999px;
+        background: #0a1426; color: var(--text);
+        border: 1px solid var(--border);
+        font-size: 12px;
+      }
+      .stack {
+        display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;
+      }
+      .stack .tag {
+        padding: 6px 10px; border-radius: 999px;
+        background: #091326; border: 1px solid var(--border);
+        color: var(--muted); font-size: 12px;
+      }
+      .progress {
+        height: 8px; border-radius: 999px;
+        background: #0a1020; border: 1px solid var(--border);
+        overflow: hidden;
+      }
+      .progress > span {
+        display: block; height: 100%;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+      .flex { display: flex; gap: 10px; align-items: center; flex-wrap: wrap }
+      .cta {
+        background: linear-gradient(90deg, #0e1e36, #12213a);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 16px;
+        display: grid; gap: 8px;
+      }
+      .cta .buttons { display: flex; gap: 10px; flex-wrap: wrap }
+      .btn {
+        display: inline-flex; align-items: center; gap: 10px;
+        padding: 10px 14px; border-radius: 12px;
+        border: 1px solid var(--border);
+        background: #0c172c; color: var(--text);
+        cursor: pointer; font-weight: 600;
+        transition: transform 0.08s ease-in-out;
+      }
+      .btn:hover { transform: translateY(-1px) }
+      .btn.primary {
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        color: #0b1020; border: none;
+      }
+      .footer {
+        margin-top: 22px; font-size: 12px; color: var(--muted);
+        text-align: center;
+      }
+      /* Print-friendly */
+      @media print {
+        :root { --bg: #ffffff; --card: #ffffff; --text: #111; --muted: #555; --border: #ddd }
+        header, section, .cta { box-shadow: none }
+        body { background: #fff }
+        a { color: #0b5bd3 }
+        .btn { display: none }
+      }
+    </style>
   </head>
-  <body style="font-family: Arial, sans-serif; padding: 40px">
-    <h1>DA-TICA</h1>
-    <p>Servicio activo para validación de dominio.</p>
+  <body>
+    <div class="wrap">
+      <header></body>
+        <div class="avatar" aria-label="Avatar">CR</div>
+        <div class="title">
+          <h1>Christian Ruiz</h1>
+          <div class="</header>role">Analista de Datos • BI & Analytics</h1> • Automatización</div>
+          <div class="flex muted">
+            <span>Ubicación: Bogotá, Colombia</span> •
+            <span>Disponibilidad: Inmediata</span> •</span></span>
+            <span>Idiomas: Español (Nativo), Inglés (B2)</span>
+          </div>
+        </div></span>
+        <div class="header-actions">
+          <span class="chip"><span class="dot"></span> Disponible para proyectos</span>
+          <span class="chip">Años de experiencia: 6+</span>
+          <span class="chip">Sectores: Retail, Financiero, Logística</span>
+        </div>
+      </header>
+
+      <main>
+        <div class="col">
+          <section aria-labelledby</main>="resumen">
+            <h2 id="resumen">Resumen Profesional</h2>
+            <p class="muted">
+              Analista de Datos con experiencia en diseño de pipelines, modelado de datos, visualización y
+              gobernanza. Domino Python, KNIME y SQL (Oracle, PostgreSQL), y me especializo en integrar
+              datos de múltiples fuentes para generar indicadores confiables, tableros accionables y
+              automatizaciones robustas. Me motiva transformar datos en decisiones con impacto y
+              construir soluciones mantenibles y bien documentadas.
+            </p>
+            <div class="cta">
+              <div></div>
+                Busco retos donde pueda:
+                <ul class="muted" style="margin: 6px 0 0 18px">
+                  <li>Optimizar procesos con automatización y orquest</li>ación.</li>
+                  <li>Elevar la calidad</li> de datos con validaciones, linaje y control.</li>
+                  <li>Diseñar métricas y tableros que</li> cuenten historias claras.</li>
+                </ul>
+              </div>
+              <div class="buttons">
+                <a class="btn primary" href="mailto:contacto.christianruiz+cv@datica.local">Contactar</a>
+                <a class="btn" href="#portafolio">Ver portafolio</a>
+                <a class="btn" href="#proyectos">Proyectos destacados</a>
+              </div>
+            </div>
+          </section>
+
+          <section aria-labelledby="experiencia">
+            <h2 id="experiencia">Experiencia</h2>
+            <div class="list">
+              <div class="item">
+                <div class="top">
+                  <div class="title">Analista de Datos — Grupo Retail Andino</div>
+                  <div class="meta">2022 — Presente • Bogotá, Colombia</div>
+                </div>
+                <div>
+                  - Diseño de modelo de ventas diario con imputación de falt</div>antes y ajuste por estacionalidad.<br />
+                  - Pipeline en KNIME + Python para integración de POS, e-commerce y logística (SLA < 30 min).<br />
+                  - Tablero en Power BI para dirección (KPI: crecimiento, conversión, rotación, OOS).<br />
+                  - Implementación de control de calidad (regex, referencias cruzadas, outliers, duplicados).<br />
+                  - Reducción de tiempo de cierre mensual de 2 días a 4 horas mediante automatización.
+                </div>
+                <div class="stack">
+                  <span class="tag">Python</span><span class="tag">KNIME</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Oracle</span><span class="tag">Airflow (conceptos)</span>
+                </div>
+              </div>
+              <div class="item">
+                <div class="top">
+                  <div class="title">Analista BI — Banco Horizonte</div>
+                  <div class="meta">2020 — 2022 • Bogotá, Colombia</div>
+                </div>
+                <div>
+                  - Modelado</div> de data marts para riesgo de crédito y fraude.<br />
+                  - Automatización de reportes regulatorios (KNIME + SQL) con validación y auditoría.<br />
+                  - Implementación de diccionario de datos y trazabilidad (linaje de campos críticos).<br />
+                  - Dashboards en Tableau para seguimiento de cartera, mora y recuperación.
+                </div>
+                <div class="stack">
+                  <span class="tag">Tableau</span><span class="tag">PostgreSQL</span><span class="tag">Oracle</span><span class="tag">ETL</span><span class="tag">Gobernanza de datos</span>
+                </div>
+              </div>
+              <div class="item">
+                <div class="top">
+                  <div class="title">Consultor de Datos — Proyectos Freelance</div>
+                  <div class="meta">2018 — 2020 • Remoto</div>
+                </div>
+                <div>
+                  - Integraciones de APIs (ventas, marketing, CRM) y normalización.<br />
+                  - Automatización de informes semanales y alertas por anomalías.<</div>br />
+                  - Migración de Excel a soluciones reproducibles con Python + notebooks.
+                </div>
+                <div class="stack">
+                  <span class="tag">APIs</span><span class="tag">Pandas</span><span class="tag">Excel</span><span class="tag">Visualización</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section aria-labelledby="proyectos" id="proyectos">
+            <h2 id="proyectos">Proyectos destacados</h2>
+            <div class="grid-2">
+              <div class="item">
+                <div class="top">
+                  <div class="title">Monitor de quiebres (OOS)</div>
+                  <span class="badge">Impacto: -22% OOS</span>
+                </div>
+                <div class="muted">
+                  Detección temprana de quiebres por SKU y tienda, con alertas y priorización basada en
+                  ventas potenciales perdidas.
+                </div>
+                <div class="stack">
+                  <span class="tag">KNIME</span><span class="tag">Python</span><span class="tag">Power BI</span>
+                </div>
+              </div>
+              <div class="item">
+                <div class="top">
+                  <div class="title">Pipeline de ventas omnicanal</div>
+                  <span class="badge">SLA: 25 min</span>
+                </div>
+                <div class="muted">
+                  Unificación de POS y e-commerce con conciliación diaria, corrección de duplicados y
+                  compensaciones por estornos.
+                </div>
+                <div class="stack">
+                  <span class="tag">Pandas</span><span class="tag">Oracle</span><span class="tag">PostgreSQL</span>
+                </div>
+              </div>
+              <div class="item">
+                <div class="top">
+                  <div class="title">Score de propensión a compra</div>
+                  <span class="badge">AUM: 5M transacciones</span>
+                </div>
+                <div class="muted">
+                  Modelo simple de clasificación para priorizar campañas y segmentación por probabilidad de
+                  compra en próximos 7 días.
+                </div>
+                <div class="stack">
+                  <span class="tag">scikit-learn</span><span class="tag">Feature engineering</span><span class="tag">A/B testing</span>
+                </div>
+              </div>
+              <div class="item">
+                <div class="top">
+                  <div class="title">Data Quality Framework</div>
+                  <span class="badge">Cobertura: 18 checks</span>
+                </div>
+                <div class="muted">
+                  Marco de validación y monitoreo con linaje, reglas de negocio y auditoría de cambios.
+                </div>
+                <div class="stack">
+                  <span class="tag">KNIME</span><span class="tag">Python</span><span class="tag">Airflow (conceptos)</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="col">
+          <section aria-labelledby="habilidades">
+            <h2 id="habilidades">Habilidades técnicas</h2>
+            <div class="skills">
+              <div>
+                <div class="flex" style="justify-content: space-between">
+                  <strong>Python</strong><span class="muted">Pandas</div></strong>, Polars, NumPy, SciPy, scikit-learn, Jupyter</span>
+                </div>
+                <div class="progress" aria-label="Nivel Python"><span style="width: 88%"></span></div>
+              </div>
+              <div>
+                <div class="flex" style="justify-content: space-between">
+                  <strong>KNIME</strong</div></strong>><span class="muted">ETL, orquestación, validaciones, reporting</span>
+                </div>
+                <div class="progress" aria-label="Nivel KNIME"><span style="width: 85%"></span></div>
+              </div>
+              <div>
+                <div class="flex" style="justify-content: space-between">
+                  <strong>SQL (</div></strong>Oracle / PostgreSQL)</strong><span class="muted">modelado, optimización, PL/SQL básico</span>
+                </div>
+                <div class="progress" aria-label="Nivel SQL"><span style="width: 82%"></span></div>
+              </div>
+              <div>
+                <div class="flex" style="justify-content: space-between">
+                  <strong>BI</strong><span class="muted">Power BI, Tableau, DAX, storytelling</span>
+                </div>
+                <div class="progress" aria-label="Nivel BI"><span style="width: 78%"></span></div>
+              </div>
+              <div>
+                <div class="flex" style="justify-content: space-between">
+                  <strong>Automatización</strong><span class="muted">scripts, scheduling, alertas</span>
+                </div>
+                <div class="progress" aria-label="Nivel Automatización"><</div>span style="width: 76%"></span></div>
+              </div</strong>>
+              <div class="stack" style="margin-top: 6px"></div></strong>
+                <span class="tag">Git</span><span class="tag">APIs REST</span><span class="tag">Excel avanzado</span><span class="tag">Regex</span><span class="tag">CSV/Parquet</span><span class="tag">Data Marts</span><span class="tag">Modelado dimensional</span>
+              </div>
+            </div>
+          </section>
+
+          <section aria-labelledby="educacion">
+            <h2 id="educacion">Educación</h2>
+            <div class="list">
+              <div class="item">
+                <div class="top">
+                  <div class="title">Ingeniería de Sistemas (B.Sc.)</div>
+                  <div class="meta">Universidad Nacional • 2013 — 2018</div>
+                </div>
+                <div class="muted">Énfasis en bases de datos y analítica.</div>
+              </div>
+              <div class="item">
+                <div class="top">
+                  <div class="title">Diplomado en Analítica de Datos</div>
+                  <div class="meta">Uniandes • 2019</div>
+                </div>
+                <div class="muted">Modelado, visualización y métricas clave.</div>
+              </div>
+            </div>
+          </section>
+
+          <section aria-labelledby="certificaciones">
+            <h2 id="certificaciones">Certificaciones</h2>
+            <div class="grid-2">
+              <div class="item">
+                <div class="top">
+                  <div class="title">Oracle SQL Expert</div>
+                  <span class="badge">Vigente</span>
+                </div>
+                <div class="muted">Consultas avanzadas, performance y PL/SQL básico.</div>
+              </div>
+              <div class="item">
+                <div class="top">
+                  <div class="title">Power BI Data Analyst</div>
+                  <span class="badge">2023</span>
+                </div>
+                <div class="muted">Modelado, DAX y storytelling.</div>
+              </div>
+              <div class="item">
+                <div class="top">
+                  <div class="title">KNIME Analytics Basics</div>
+                  <span class="badge">2022</span>
+                </div>
+                <div class="muted">Flujos ETL, nodos, validación y reporting.</div>
+              </div>
+              <div class="item">
+                <div class="top">
+                  <div class="title">Python para Data Science</div>
+                  <span class="badge">2020</span>
+                </div>
+                <div class="muted">Pandas, NumPy, scikit-learn, notebooks.</div>
+              </div>
+            </div>
+          </section>
+
+          <section aria-labelledby="logros">
+            <h2 id="logros">Logros</h2>
+            <ul class="muted" style="margin: 0 0 0 18px">
+              <li>Reducción de OOS en 22% con monitor y alertas automáticas.</li>
+              <li>Disminución del tiempo de cierre mensual de 2 días a 4 horas.</li>
+              <li>Implementación de 18 reglas de calidad con auditoría y linaje.</li>
+              <li>Tablero ejecutivo con KPIs accionables y explicación</li></li></li></li> de variaciones.</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="contacto">
+            <h2 id="contacto">Contacto</h2>
+            <div class="grid-2">
+              <div class="item">
+                <div class="top">
+                  <div class="title">Información</div>
+                  <span class="badge">Respuesta: <span style="color: var(--ok)">rápida</span></span>
+                </div>
+                <div class="list">
+                  <div class="flex"><strong>Correo:</strong> <span class</strong>="muted">contacto.christianruiz+cv@datica.local</span></div>
+                  <div class="flex"><strong>Teléfono:</strong> <span class="muted">(+57) 300 000 0000</span></div>
+                  <div class="flex"><strong>LinkedIn:</strong> <span><a href="#" rel="nofollow">/christianruiz-analista</a></span></div>
+                  <div class="flex"><strong>GitHub:</strong> <span><a href="#" rel="nofollow">/chruiz-data</a></span></div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="top">
+                  <div class="title">Intereses</div>
+                  <span class="badge">DataOps</span>
+                </div>
+                <div class="stack">
+                  <span class="tag">Data Quality</span><span class="tag">Orquestación</span><span class="tag">Time-series</span><span class="tag">Segmentación</span><span class="tag">Forecast</span>
+                </div>
+              </div>
+            </div>
+          </section></strong></strong></strong>
+
+          <section aria-labelledby="portafolio" id="portafolio">
+            <h2 id="portafolio">Portafolio</h2>
+            <div class="item">
+              <div class="top">
+                <div class="title">Dashboards</div>
+                <span class="badge">Power BI / Tableau</span>
+              </div>
+              <div class="grid-2">
+                <div class="item">
+                  <div class="top">
+                    <div class="title">Ventas & Conversión</div>
+                    <span class="badge">Ejecutivo</span>
+                  </div>
+                  <div class="muted">Visión 360 de ventas diarias, tasa de conversión, ticket promedio y margen.</div>
+                </div>
+                <div class="item">
+                  <div class="top">
+                    <div class="title">Inventario & Rotación</div>
+                    <span class="badge">Operativo</span>
+                  </div>
+                  <div class="muted">Cobertura de inventario, rotación SKU, alertas de quiebres y exceso.</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <div class="footer">
+        © <span id="y"></span> Christian Ruiz. Esta hoja de vida es autocontenida, ligera y lista para impresión.
+      </div>
+    </div>
+
+    <script>
+      // Año dinámico
+      document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
   </body>
-</html>
+</html></script>
