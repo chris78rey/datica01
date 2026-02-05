@@ -4,7 +4,7 @@ services:
   web:
     image: nginx:1.27-alpine
     restart: unless-stopped
-    ports:
-      - "3000:80"
     volumes:
-      - ./:/usr/share/nginx/html:ro
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+    expose:
+      - "80"
